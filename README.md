@@ -33,7 +33,7 @@ The setting is saved even if the file does not exist yet, so you can configure t
 
 ## Manual Command
 
-Use `Auto-Template: Apply configured template to current note` from the command palette to apply the configured template to the active empty Markdown note.
+Use `Apply configured template to current note` from the command palette to apply the configured template to the active empty Markdown note.
 
 ## Creator
 

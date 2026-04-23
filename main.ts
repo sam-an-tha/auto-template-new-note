@@ -36,7 +36,7 @@ export default class AutoTemplateNewNotePlugin extends Plugin {
 
     this.addCommand({
       id: "apply-configured-template-to-current-note",
-      name: "Auto-Template: Apply configured template to current note",
+      name: "Apply configured template to current note",
       callback: () => {
         void this.applyTemplateToActiveFile();
       },
@@ -64,7 +64,7 @@ export default class AutoTemplateNewNotePlugin extends Plugin {
 
     if (!this.settings.templateFilePath.trim()) {
       new Notice(
-        "Auto-Template needs a template path. Set one in plugin settings.",
+        "Auto-template needs a template path. Set one in plugin settings.",
         NOTICE_DURATION_MS
       );
       return;
@@ -128,9 +128,9 @@ export default class AutoTemplateNewNotePlugin extends Plugin {
         return renderedTemplate;
       });
     } catch (error) {
-      console.error("Auto-Template failed to apply template", error);
+      console.error("Auto-template failed to apply template", error);
       new Notice(
-        "Auto-Template could not apply the template. Check the developer console for details.",
+        "Auto-template could not apply the template. Check the developer console for details.",
         NOTICE_DURATION_MS
       );
       return;
@@ -178,7 +178,7 @@ export default class AutoTemplateNewNotePlugin extends Plugin {
     if (!templatePath) {
       if (options.showNotice) {
         new Notice(
-          "Auto-Template needs a template path. Set one in plugin settings.",
+          "Auto-template needs a template path. Set one in plugin settings.",
           NOTICE_DURATION_MS
         );
       }
@@ -190,7 +190,7 @@ export default class AutoTemplateNewNotePlugin extends Plugin {
     if (!templateFile) {
       if (options.showNotice) {
         new Notice(
-          "Template file not found. Check the path in Auto-Template settings.",
+          "Template file not found. Check the path in auto-template settings.",
           NOTICE_DURATION_MS
         );
       }
@@ -232,7 +232,7 @@ class AutoTemplateSettingTab extends PluginSettingTab {
     const { containerEl } = this;
 
     containerEl.empty();
-    containerEl.createEl("h2", { text: "Auto-Template New Note" });
+    new Setting(containerEl).setName("Auto-template new note").setHeading();
 
     const validation = containerEl.createEl("p", {
       text: this.plugin.getTemplateValidationMessage(),

@@ -1,6 +1,6 @@
 {
   "name": "obsidian-auto-template-new-note",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automatically applies a configured template to newly created empty Markdown notes in Obsidian.",
   "main": "main.js",
   "scripts": {
