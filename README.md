@@ -9,8 +9,17 @@ Auto-Template New Note is an Obsidian plugin that applies one configured templat
 - Treats whitespace-only notes as empty.
 - Ignores non-Markdown files.
 - Ignores the configured template file itself.
-- Copies the template content exactly as written.
-- Does not process variables such as `{{date}}`, `{{time}}`, or `{{title}}` in v1.
+- Supports `{{date}}`, `{{time}}`, and `{{title}}` placeholders.
+
+## Placeholders
+
+The plugin replaces these placeholders when it applies your template:
+
+```text
+{{date}}  -> current date as YYYY-MM-DD
+{{time}}  -> current time as HH:mm
+{{title}} -> new note title
+```
 
 ## Settings
 

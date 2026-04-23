@@ -117,6 +117,7 @@ export default class AutoTemplateNewNotePlugin extends Plugin {
 
     try {
       const templateContent = await this.app.vault.read(templateFile);
+      const renderedTemplate = renderTemplateContent(templateContent, targetFile);
 
       await this.app.vault.process(targetFile, (currentContent) => {
         if (currentContent.trim().length > 0) {
@@ -124,7 +125,7 @@ export default class AutoTemplateNewNotePlugin extends Plugin {
         }
 
         applied = true;
-        return templateContent;
+        return renderedTemplate;
       });
     } catch (error) {
       console.error("Auto-Template failed to apply template", error);
@@ -269,6 +270,30 @@ class AutoTemplateSettingTab extends PluginSettingTab {
 function normalizeTemplatePath(path: string): string {
   const trimmedPath = path.trim();
   return trimmedPath ? normalizePath(trimmedPath) : "";
+}
+
+function renderTemplateContent(templateContent: string, targetFile: TFile): string {
+  const now = new Date();
+
+  return templateContent
+    .replace(/\{\{date\}\}/g, formatDate(now))
+    .replace(/\{\{time\}\}/g, formatTime(now))
+    .replace(/\{\{title\}\}/g, targetFile.basename);
+}
+
+function formatDate(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function formatTime(date: Date): string {
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+
+  return `${hours}:${minutes}`;
 }
 
 function sleep(milliseconds: number): Promise<void> {
