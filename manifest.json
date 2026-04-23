@@ -1,0 +1,11 @@
+{
+  "id": "auto-template-new-note",
+  "name": "Auto-Template New Note",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "Automatically applies a configured template to newly created empty Markdown notes.",
+  "author": "Samantha Leck",
+  "authorUrl": "",
+  "fundingUrl": "https://ko-fi.com/heysam",
+  "isDesktopOnly": false
+}
