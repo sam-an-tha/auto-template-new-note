@@ -1,7 +1,7 @@
 {
   "id": "auto-template-new-note",
   "name": "Auto-Template New Note",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "minAppVersion": "1.5.0",
   "description": "Automatically applies a configured template to newly created empty Markdown notes.",
   "author": "Samantha Leck",

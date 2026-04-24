@@ -232,7 +232,7 @@ class AutoTemplateSettingTab extends PluginSettingTab {
     const { containerEl } = this;
 
     containerEl.empty();
-    new Setting(containerEl).setName("Auto-template new note").setHeading();
+    new Setting(containerEl).setName("Template settings").setHeading();
 
     const validation = containerEl.createEl("p", {
       text: this.plugin.getTemplateValidationMessage(),
@@ -255,9 +255,9 @@ class AutoTemplateSettingTab extends PluginSettingTab {
       );
 
     const creator = containerEl.createEl("p");
-    creator.appendText("creator: ");
+    creator.appendText("Creator: ");
     creator.createEl("a", {
-      text: "samantha leck",
+      text: "Samantha Leck",
       attr: {
         href: CREATOR_URL,
         target: "_blank",

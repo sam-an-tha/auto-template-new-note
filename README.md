@@ -37,4 +37,4 @@ Use `Apply configured template to current note` from the command palette to appl
 
 ## Creator
 
-creator: [samantha leck](https://ko-fi.com/heysam)
+Creator: [Samantha Leck](https://ko-fi.com/heysam)
