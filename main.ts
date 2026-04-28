@@ -232,7 +232,7 @@ class AutoTemplateSettingTab extends PluginSettingTab {
     const { containerEl } = this;
 
     containerEl.empty();
-    new Setting(containerEl).setName("Template settings").setHeading();
+    new Setting(containerEl).setName("Template").setHeading();
 
     const validation = containerEl.createEl("p", {
       text: this.plugin.getTemplateValidationMessage(),
@@ -257,6 +257,7 @@ class AutoTemplateSettingTab extends PluginSettingTab {
     const creator = containerEl.createEl("p");
     creator.appendText("Creator: ");
     creator.createEl("a", {
+      // eslint-disable-next-line obsidianmd/ui/sentence-case
       text: "Samantha Leck",
       attr: {
         href: CREATOR_URL,
@@ -276,9 +277,9 @@ function renderTemplateContent(templateContent: string, targetFile: TFile): stri
   const now = new Date();
 
   return templateContent
-    .replace(/\{\{date\}\}/g, formatDate(now))
-    .replace(/\{\{time\}\}/g, formatTime(now))
-    .replace(/\{\{title\}\}/g, targetFile.basename);
+    .replace(/\{\{\s*date(?:\s*:\s*YYYY-MM-DD)?\s*\}\}/g, formatDate(now))
+    .replace(/\{\{\s*time(?:\s*:\s*HH:mm)?\s*\}\}/g, formatTime(now))
+    .replace(/\{\{\s*title\s*\}\}/g, targetFile.basename);
 }
 
 function formatDate(date: Date): string {
