@@ -257,8 +257,7 @@ class AutoTemplateSettingTab extends PluginSettingTab {
     const creator = containerEl.createEl("p");
     creator.appendText("Creator: ");
     creator.createEl("a", {
-      // eslint-disable-next-line obsidianmd/ui/sentence-case
-      text: "Samantha Leck",
+      text: "Sam 🧧",
       attr: {
         href: CREATOR_URL,
         target: "_blank",
